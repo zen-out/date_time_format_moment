@@ -1,10 +1,4 @@
-# Template
-
-> The purpose is to...
-
-[Instructions](http://github)
-[GitHub](http://github.com)
-[Node Package](http://github.com)
+# format_date_time_moment
 
 ## Table of Contents
 
@@ -56,20 +50,18 @@ $(() => {
 **Date**: 2022-01-13  
 
 * [FormatDateTime](#FormatDateTime)
-    - [formatDateTime.getType(date)](#FormatDateTime+getType) ⇒ <code>any</code>
-    - [formatDateTime.isBefore(start, end)](#FormatDateTime+isBefore) ⇒ <code>any</code>
-    - [formatDateTime.getDuration(start, end, type)](#FormatDateTime+getDuration) ⇒ <code>any</code>
-    - [formatDateTime.getReadableFormat(getDate, type)](#FormatDateTime+getReadableFormat) ⇒ <code>any</code>
-    - [formatDateTime.difference(one, two, type)](#FormatDateTime+difference) ⇒ <code>any</code>
+    - [formatDateTime.getType(date)](#FormatDateTime+getType) ⇒ <code>moment</code>
+    - [formatDateTime.isBefore(start, end)](#FormatDateTime+isBefore) ⇒ <code>moment</code>
+    - [formatDateTime.getDuration(start, end, type)](#FormatDateTime+getDuration) ⇒ <code>moment</code>
+    - [formatDateTime.getReadableFormat(getDate, type)](#FormatDateTime+getReadableFormat) ⇒ <code>moment</code>
+    - [formatDateTime.difference(one, two, type)](#FormatDateTime+difference) ⇒ <code>moment</code>
     - [formatDateTime.format(date, type)](#FormatDateTime+format) ⇒ <code>any</code>
-    - [formatDateTime.digitalToSeconds(string)](#FormatDateTime+digitalToSeconds) ⇒ <code>any</code>
-    - [formatDateTime.formatDateToPost(stringInput)](#FormatDateTime+formatDateToPost) ⇒ <code>any</code>
-    - [formatDateTime.secondsString(seconds)](#FormatDateTime+secondsString) ⇒ <code>any</code>
-    - [formatDateTime.isBetween(start, end)](#FormatDateTime+isBetween) ⇒ <code>any</code>
-    - [formatDateTime.secondsToDigital(seconds)](#FormatDateTime+secondsToDigital) ⇒ <code>any</code>
-    - [formatDateTime.getDate(getDate, option)](#FormatDateTime+getDate) ⇒ <code>any</code>
-
-<a name="new_FormatDateTime_new"></a>
+    - [formatDateTime.digitalToSeconds(string)](#FormatDateTime+digitalToSeconds) ⇒ <code>moment</code>
+    - [formatDateTime.formatDateToPost(stringInput)](#FormatDateTime+formatDateToPost) ⇒ <code>moment</code>
+    - [formatDateTime.secondsString(seconds)](#FormatDateTime+secondsString) ⇒ <code>moment</code>
+    - [formatDateTime.isBetween(start, end)](#FormatDateTime+isBetween) ⇒ <code>moment</code>
+    - [formatDateTime.secondsToDigital(seconds)](#FormatDateTime+secondsToDigital) ⇒ <code>moment</code>
+    - [formatDateTime.getDate(getDate, option)](#FormatDateTime+getDate) ⇒ <code>moment</code>
 
 #### new FormatDateTime()
 
