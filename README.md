@@ -45,249 +45,121 @@ $(() => {
 ## API
 
 <!-- api -->
+<a name="HandlebarsToJSRender"></a>
 
-<a name="FormatDateTime"></a>
-
-### FormatDateTime
-
+## HandlebarsToJSRender
 **Kind**: global class  
-**Date**: 2022-01-13  
+**Date**: 2022-02-08  
 
-* [FormatDateTime](#FormatDateTime)
-    - [formatDateTime.getType(date)](#FormatDateTime+getType) ⇒ <code>moment</code>
-    - [formatDateTime.isBefore(start, end)](#FormatDateTime+isBefore) ⇒ <code>moment</code>
-    - [formatDateTime.getDuration(start, end, type)](#FormatDateTime+getDuration) ⇒ <code>moment</code>
-    - [formatDateTime.getReadableFormat(getDate, type)](#FormatDateTime+getReadableFormat) ⇒ <code>moment</code>
-    - [formatDateTime.difference(one, two, type)](#FormatDateTime+difference) ⇒ <code>moment</code>
-    - [formatDateTime.format(date, type)](#FormatDateTime+format) ⇒ <code>any</code>
-    - [formatDateTime.digitalToSeconds(string)](#FormatDateTime+digitalToSeconds) ⇒ <code>moment</code>
-    - [formatDateTime.formatDateToPost(stringInput)](#FormatDateTime+formatDateToPost) ⇒ <code>moment</code>
-    - [formatDateTime.secondsString(seconds)](#FormatDateTime+secondsString) ⇒ <code>moment</code>
-    - [formatDateTime.isBetween(start, end)](#FormatDateTime+isBetween) ⇒ <code>moment</code>
-    - [formatDateTime.secondsToDigital(seconds)](#FormatDateTime+secondsToDigital) ⇒ <code>moment</code>
-    - [formatDateTime.getDate(getDate, option)](#FormatDateTime+getDate) ⇒ <code>moment</code>
+* [HandlebarsToJSRender](#HandlebarsToJSRender)
+    * [new HandlebarsToJSRender(options)](#new_HandlebarsToJSRender_new)
+    * [.init()](#HandlebarsToJSRender+init) ⇒ <code>null</code>
+    * [.resetFile()](#HandlebarsToJSRender+resetFile) ⇒ <code>null</code>
+    * [.replaceSyntax(testOne)](#HandlebarsToJSRender+replaceSyntax) ⇒ <code>any</code>
+    * [.replaceAll(string, original, itemToReplace)](#HandlebarsToJSRender+replaceAll) ⇒ <code>string</code>
+    * [.replaceForBuild(string)](#HandlebarsToJSRender+replaceForBuild) ⇒ <code>string</code>
+    * [.readFolder()](#HandlebarsToJSRender+readFolder)
+    * [.replaceForProduction(string)](#HandlebarsToJSRender+replaceForProduction) ⇒ <code>string</code>
+    * [.getBeginningTemplate()](#HandlebarsToJSRender+getBeginningTemplate) ⇒ <code>string</code>
+    * [.getEndingTemplate()](#HandlebarsToJSRender+getEndingTemplate) ⇒ <code>string</code>
 
-#### new FormatDateTime()
+<a name="new_HandlebarsToJSRender_new"></a>
 
-let formatDateTime = new FormatDateTime()
+### new HandlebarsToJSRender(options)
+let handlebarsToJSRender = new HandlebarsToJSRender({folderPaths: [""], dictionary: {STRING_TO_REPLACE_HBSSYNTAX: HBSSYNTAX}})
 
-<a name="FormatDateTime+getType"></a>
-
-#### formatDateTime.getType(date) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
 
 | Param | Type |
 | --- | --- |
-| date | <code>any</code> | 
+| options | <code>any</code> | 
 
-**Example**  
+<a name="HandlebarsToJSRender+init"></a>
 
-```js
-getType(Date)
-"2022-03-01T19:06:31.047Z"
-"00:22:00"
-"March 1, 2022"
-"Mar 1, 2022"
-"2022-03-01"
-"01-03-2022"
-"2022/03/01"
-new Date()
-23
-```
+### handlebarsToJSRender.init() ⇒ <code>null</code>
+Will reset the entire file
 
-<a name="FormatDateTime+isBefore"></a>
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
+<a name="HandlebarsToJSRender+resetFile"></a>
 
-#### formatDateTime.isBefore(start, end) ⇒ <code>any</code>
+### handlebarsToJSRender.resetFile() ⇒ <code>null</code>
+Resets index.html file
 
-Good to use if you want to see a date is before another
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
+<a name="HandlebarsToJSRender+replaceSyntax"></a>
 
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-20  
+### handlebarsToJSRender.replaceSyntax(testOne) ⇒ <code>any</code>
+Replaces all partials {{> }} with {{include templ=''}}
+Replaces {{#each data}}{{/each}} with {{for data}}{{/for}}
 
-| Param | Type |
-| --- | --- |
-| start | <code>any</code> | 
-| end | <code>any</code> | 
-
-**Example**  
-
-```js
-console.log(formatDateTime.isBetween("March 3, 2020", "March 10, 2021"))
-```
-
-<a name="FormatDateTime+getDuration"></a>
-
-#### formatDateTime.getDuration(start, end, type) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
 
 | Param | Type |
 | --- | --- |
-| start | <code>any</code> | 
-| end | <code>any</code> | 
-| type | <code>any</code> | 
+| testOne | <code>any</code> | 
 
-**Example**  
+<a name="HandlebarsToJSRender+replaceAll"></a>
 
-```js
-console.log(formatDateTime.getDuration("2022-03-01T19:06:31.047Z", "2022-03-01T20:04:32.047Z", "seconds")) // 3481
-console.log(formatDateTime.getDuration("2022-04-01T19:06:31.047Z", "2022-06-01T20:04:32.047Z", "days")) // 61.040289351851854
-```
+### handlebarsToJSRender.replaceAll(string, original, itemToReplace) ⇒ <code>string</code>
+1. While string includes second parameter
+2. Replace with third parameter
 
-<a name="FormatDateTime+getReadableFormat"></a>
-
-#### formatDateTime.getReadableFormat(getDate, type) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| getDate | <code>any</code> |  | 
-| type | <code>any</code> | <code>from</code> | 
-
-**Example**  
-
-```js
-getReadableFormat("Dec 11, 2012", "from") in 2 months
-getReadableFormat("Dec 11, 2012", "to") 2 months ago
-```
-
-<a name="FormatDateTime+difference"></a>
-
-#### formatDateTime.difference(one, two, type) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
 
 | Param | Type |
 | --- | --- |
-| one | <code>any</code> | 
-| two | <code>any</code> | 
-| type | <code>any</code> | 
+| string | <code>string</code> | 
+| original | <code>string</code> | 
+| itemToReplace | <code>string</code> | 
 
-**Example**  
+<a name="HandlebarsToJSRender+replaceForBuild"></a>
 
-```js
-console.log(formatDateTime.difference("00:22:00", "00:44:00", "seconds"))
-console.log(formatDateTime.difference("March 1, 2020", "March 1, 2021", "months"))
-```
+### handlebarsToJSRender.replaceForBuild(string) ⇒ <code>string</code>
+will replace all the items that you have with regular text so we can render it via jsrender
 
-<a name="FormatDateTime+format"></a>
-
-#### formatDateTime.format(date, type) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| date | <code>any</code> |  |
-| type | <code>any</code> | localInput, dateInput, timeInput, |
-
-**Example**  
-
-```js
-console.log(formatDateTime.format("Dec 11, 2012", "HHMMSS"))
-console.log(formatDateTime.format("March 1, 2022", "dateInput")) 2022 - 03 - 01 < input type = "date" / >
-    //  console.log(formatDateTime.format("March 1, 2022", "timeInput")) 00:00:00 <input type="time" step="1" />
-    console.log(formatDateTime.format("March 1, 2022", "localInput")) 2022 - 03 - 01 T00: 00: 00 < input type = "datetime-local"
-step = "1" / >
-```
-
-<a name="FormatDateTime+digitalToSeconds"></a>
-
-#### formatDateTime.digitalToSeconds(string) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
 
 | Param | Type |
 | --- | --- |
 | string | <code>any</code> | 
 
-**Example**  
+<a name="HandlebarsToJSRender+readFolder"></a>
 
-```js
-digitalToSeconds(00: 33: 22) - > seconds
-```
+### handlebarsToJSRender.readFolder()
+1. Reads through options.folderPaths, and if wrap is true, will wrap around x-jsrender tag 
+2. Will also give the id as its file name
 
-<a name="FormatDateTime+formatDateToPost"></a>
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
+<a name="HandlebarsToJSRender+replaceForProduction"></a>
 
-#### formatDateTime.formatDateToPost(stringInput) ⇒ <code>any</code>
+### handlebarsToJSRender.replaceForProduction(string) ⇒ <code>string</code>
+replaceForProduction(string)
+1. Loops through dictionary
+2. Replaces all instances of the value, if key found in string 
+3. Returns string
 
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
-
-| Param | Type |
-| --- | --- |
-| stringInput | <code>any</code> | 
-
-**Example**  
-
-```js
-formatDateToPost(stringInput)
-```
-
-<a name="FormatDateTime+secondsString"></a>
-
-#### formatDateTime.secondsString(seconds) ⇒ <code>any</code>
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
 
 | Param | Type |
 | --- | --- |
-| seconds | <code>any</code> | 
+| string | <code>any</code> | 
 
-**Example**  
+<a name="HandlebarsToJSRender+getBeginningTemplate"></a>
 
-```js
-secondsString(seconds)
-```
+### handlebarsToJSRender.getBeginningTemplate() ⇒ <code>string</code>
+getBeginningTemplate()
 
-<a name="FormatDateTime+isBetween"></a>
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
+<a name="HandlebarsToJSRender+getEndingTemplate"></a>
 
-#### formatDateTime.isBetween(start, end) ⇒ <code>any</code>
+### handlebarsToJSRender.getEndingTemplate() ⇒ <code>string</code>
+getEndingTemplate()
 
-Good to use if you want to see a date is before another
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-20  
-
-| Param | Type |
-| --- | --- |
-| start | <code>any</code> | 
-| end | <code>any</code> | 
-
-<a name="FormatDateTime+secondsToDigital"></a>
-
-#### formatDateTime.secondsToDigital(seconds) ⇒ <code>any</code>
-
-console.log(formatDateTime.secondsToDigital(23423)) 06: 30: 23
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
-
-| Param | Type |
-| --- | --- |
-| seconds | <code>any</code> | 
-
-<a name="FormatDateTime+getDate"></a>
-
-#### formatDateTime.getDate(getDate, option) ⇒ <code>any</code>
-
-getDate(date, options)
-
-**Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
-**Date**: 2022-01-13  
-
-| Param | Type |
-| --- | --- |
-| getDate | <code>any</code> | 
-| option | <code>any</code> | 
-
-<!-- apistop -->
+**Kind**: instance method of [<code>HandlebarsToJSRender</code>](#HandlebarsToJSRender)  
+**Date**: 2022-02-08  
