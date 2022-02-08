@@ -1,6 +1,6 @@
 {
     "name": "format_date_time_moment",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "The purpose is to ensure that one can format date and time variables, given whatever the format may be in",
     "main": "index.js",
     "directories": {
