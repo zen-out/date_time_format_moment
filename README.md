@@ -1,3 +1,5 @@
+![NPM Downloads](https://img.shields.io/npm/dw/format_date_time_moment)
+
 # format_date_time_moment
 
 The purpose is to make it easier to format dates (given whatever input the date may be in)
@@ -17,7 +19,7 @@ The purpose is to make it easier to format dates (given whatever input the date 
 1. Install the package 
 
 ```
-npm install date_utilz
+npm install format_date_time_moment
 ```
 
 2. In your html document, import the script (make sure to import it after your ***JQuery AND moment*** script, and before your javascript file)
