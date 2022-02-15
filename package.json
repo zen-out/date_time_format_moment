@@ -8,6 +8,7 @@
         "test": "test"
     },
     "scripts": {
+        "docs": "cd .. && node save.js --folder date_utilz",
         "updateVersion": "npm version minor",
         "commitThis": "git add . && git commit -m 'updated' && git push",
         "start": "npm run commitThis &&  npm run updateVersion && npm publish",
