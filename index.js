@@ -84,7 +84,7 @@ class FormatDateTime {
          23
          * @date 2022-01-13
          * @param {any} date
-         * @returns {any}
+         * @returns {moment}
          */
     getType(date) {
             // console.log(date.length)
@@ -183,7 +183,7 @@ class FormatDateTime {
          * @date 2022-01-20
          * @param {any} start
          * @param {any} end
-         * @returns {any}
+         * @returns {moment}
          */
     isBefore(start, end) {
             let dateOne = this.getType(start)
@@ -199,7 +199,7 @@ class FormatDateTime {
          * @param {any} start
          * @param {any} end
          * @param {any} type
-         * @returns {any}
+         * @returns {moment}
          */
     getDuration(start, end, type) {
         let dateOne = this.getType(start)
@@ -218,7 +218,7 @@ class FormatDateTime {
      * @date 2022-01-13
      * @param {any} getDate
      * @param {any} type
-     * @returns {any}
+     * @returns {moment}
      */
     getReadableFormat(getDate, type = "from") {
             let formatted = this.getType(getDate)
@@ -236,7 +236,7 @@ class FormatDateTime {
          * @param {any} one
          * @param {any} two
          * @param {any} type
-         * @returns {any}
+         * @returns {moment}
          */
     difference(one, two, type) {
             let dateOne = this.getType(one)
@@ -253,7 +253,7 @@ class FormatDateTime {
          * @date 2022-01-13
          * @param {any} date
          * @param {any} type localInput, dateInput, timeInput, 
-         * @returns {any}
+         * @returns {moment}
          */
     format(date, type) {
         let formats = {
@@ -276,7 +276,7 @@ class FormatDateTime {
      * digitalToSeconds(00:33:22) -> seconds
      * @date 2022-01-13
      * @param {any} string
-     * @returns {any}
+     * @returns {moment}
      */
     digitalToSeconds(string) {
             let spliced = string.split(":")
@@ -293,7 +293,7 @@ class FormatDateTime {
          * formatDateToPost(stringInput)
          * @date 2022-01-13
          * @param {any} stringInput
-         * @returns {any}
+         * @returns {moment}
          */
     formatDateToPost(stringInput) {
         let date = this.getType(stringInput)
@@ -306,7 +306,7 @@ class FormatDateTime {
      * secondsString(seconds)
      * @date 2022-01-13
      * @param {any} seconds
-     * @returns {any}
+     * @returns {moment}
      */
     secondsString(seconds) {
             seconds = Number(seconds);
@@ -328,7 +328,7 @@ class FormatDateTime {
          * @date 2022-01-20
          * @param {any} start
          * @param {any} end
-         * @returns {any}
+         * @returns {moment}
          */
     isBetween(target, start, end) {
             let dateZero = this.getType(target)
@@ -341,7 +341,7 @@ class FormatDateTime {
          * console.log(formatDateTime.secondsToDigital(23423)) 06: 30: 23
          * @date 2022-01-13
          * @param {any} seconds
-         * @returns {any}
+         * @returns {moment}
          */
     secondsToDigital(seconds) {
             var sec_num = parseInt(seconds, 10); // don't forget the second param
@@ -365,7 +365,7 @@ class FormatDateTime {
          * @date 2022-01-13
          * @param {any} getDate
          * @param {any} option
-         * @returns {any}
+         * @returns {moment}
          */
     getDate(getDate, option) {
         //   console.debug("DATE", getDate);

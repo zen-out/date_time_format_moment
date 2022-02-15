@@ -53,18 +53,18 @@ $(() => {
 
 * [FormatDateTime](#FormatDateTime)
     * [new FormatDateTime()](#new_FormatDateTime_new)
-    * [.getType(date)](#FormatDateTime+getType) ⇒ <code>any</code>
-    * [.isBefore(start, end)](#FormatDateTime+isBefore) ⇒ <code>any</code>
-    * [.getDuration(start, end, type)](#FormatDateTime+getDuration) ⇒ <code>any</code>
-    * [.getReadableFormat(getDate, type)](#FormatDateTime+getReadableFormat) ⇒ <code>any</code>
-    * [.difference(one, two, type)](#FormatDateTime+difference) ⇒ <code>any</code>
-    * [.format(date, type)](#FormatDateTime+format) ⇒ <code>any</code>
-    * [.digitalToSeconds(string)](#FormatDateTime+digitalToSeconds) ⇒ <code>any</code>
-    * [.formatDateToPost(stringInput)](#FormatDateTime+formatDateToPost) ⇒ <code>any</code>
-    * [.secondsString(seconds)](#FormatDateTime+secondsString) ⇒ <code>any</code>
-    * [.isBetween(start, end)](#FormatDateTime+isBetween) ⇒ <code>any</code>
-    * [.secondsToDigital(seconds)](#FormatDateTime+secondsToDigital) ⇒ <code>any</code>
-    * [.getDate(getDate, option)](#FormatDateTime+getDate) ⇒ <code>any</code>
+    * [.getType(date)](#FormatDateTime+getType) ⇒ <code>moment</code>
+    * [.isBefore(start, end)](#FormatDateTime+isBefore) ⇒ <code>moment</code>
+    * [.getDuration(start, end, type)](#FormatDateTime+getDuration) ⇒ <code>moment</code>
+    * [.getReadableFormat(getDate, type)](#FormatDateTime+getReadableFormat) ⇒ <code>moment</code>
+    * [.difference(one, two, type)](#FormatDateTime+difference) ⇒ <code>moment</code>
+    * [.format(date, type)](#FormatDateTime+format) ⇒ <code>moment</code>
+    * [.digitalToSeconds(string)](#FormatDateTime+digitalToSeconds) ⇒ <code>moment</code>
+    * [.formatDateToPost(stringInput)](#FormatDateTime+formatDateToPost) ⇒ <code>moment</code>
+    * [.secondsString(seconds)](#FormatDateTime+secondsString) ⇒ <code>moment</code>
+    * [.isBetween(start, end)](#FormatDateTime+isBetween) ⇒ <code>moment</code>
+    * [.secondsToDigital(seconds)](#FormatDateTime+secondsToDigital) ⇒ <code>moment</code>
+    * [.getDate(getDate, option)](#FormatDateTime+getDate) ⇒ <code>moment</code>
 
 <a name="new_FormatDateTime_new"></a>
 
@@ -73,7 +73,7 @@ let formatDateTime = new FormatDateTime()
 
 <a name="FormatDateTime+getType"></a>
 
-### formatDateTime.getType(date) ⇒ <code>any</code>
+### formatDateTime.getType(date) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -96,7 +96,7 @@ getType(Date)
 ```
 <a name="FormatDateTime+isBefore"></a>
 
-### formatDateTime.isBefore(start, end) ⇒ <code>any</code>
+### formatDateTime.isBefore(start, end) ⇒ <code>moment</code>
 Good to use if you want to see a date is before another
 
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
@@ -113,7 +113,7 @@ console.log(formatDateTime.isBetween("March 3, 2020", "March 10, 2021"))
 ```
 <a name="FormatDateTime+getDuration"></a>
 
-### formatDateTime.getDuration(start, end, type) ⇒ <code>any</code>
+### formatDateTime.getDuration(start, end, type) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -130,7 +130,7 @@ console.log(formatDateTime.getDuration("2022-03-01T19:06:31.047Z", "2022-03-01T2
 ```
 <a name="FormatDateTime+getReadableFormat"></a>
 
-### formatDateTime.getReadableFormat(getDate, type) ⇒ <code>any</code>
+### formatDateTime.getReadableFormat(getDate, type) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -146,7 +146,7 @@ getReadableFormat("Dec 11, 2012", "to") 2 months ago
 ```
 <a name="FormatDateTime+difference"></a>
 
-### formatDateTime.difference(one, two, type) ⇒ <code>any</code>
+### formatDateTime.difference(one, two, type) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -163,7 +163,7 @@ console.log(formatDateTime.difference("00:22:00", "00:44:00", "seconds"))
 ```
 <a name="FormatDateTime+format"></a>
 
-### formatDateTime.format(date, type) ⇒ <code>any</code>
+### formatDateTime.format(date, type) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -182,7 +182,7 @@ console.log(formatDateTime.format("March 1, 2022", "dateInput")) 2022 - 03 - 01 
 ```
 <a name="FormatDateTime+digitalToSeconds"></a>
 
-### formatDateTime.digitalToSeconds(string) ⇒ <code>any</code>
+### formatDateTime.digitalToSeconds(string) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -196,7 +196,7 @@ digitalToSeconds(00:33:22) -> seconds
 ```
 <a name="FormatDateTime+formatDateToPost"></a>
 
-### formatDateTime.formatDateToPost(stringInput) ⇒ <code>any</code>
+### formatDateTime.formatDateToPost(stringInput) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -210,7 +210,7 @@ formatDateToPost(stringInput)
 ```
 <a name="FormatDateTime+secondsString"></a>
 
-### formatDateTime.secondsString(seconds) ⇒ <code>any</code>
+### formatDateTime.secondsString(seconds) ⇒ <code>moment</code>
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
 **Date**: 2022-01-13  
 
@@ -224,7 +224,7 @@ secondsString(seconds)
 ```
 <a name="FormatDateTime+isBetween"></a>
 
-### formatDateTime.isBetween(start, end) ⇒ <code>any</code>
+### formatDateTime.isBetween(start, end) ⇒ <code>moment</code>
 Good to use if you want to see a date is before another
 
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
@@ -237,7 +237,7 @@ Good to use if you want to see a date is before another
 
 <a name="FormatDateTime+secondsToDigital"></a>
 
-### formatDateTime.secondsToDigital(seconds) ⇒ <code>any</code>
+### formatDateTime.secondsToDigital(seconds) ⇒ <code>moment</code>
 console.log(formatDateTime.secondsToDigital(23423)) 06: 30: 23
 
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
@@ -249,7 +249,7 @@ console.log(formatDateTime.secondsToDigital(23423)) 06: 30: 23
 
 <a name="FormatDateTime+getDate"></a>
 
-### formatDateTime.getDate(getDate, option) ⇒ <code>any</code>
+### formatDateTime.getDate(getDate, option) ⇒ <code>moment</code>
 getDate(date, options)
 
 **Kind**: instance method of [<code>FormatDateTime</code>](#FormatDateTime)  
