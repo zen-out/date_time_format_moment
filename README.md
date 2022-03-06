@@ -1,5 +1,6 @@
 # THIS MODULE HAS BEEN DEPRECIATED AND HAS BEEN MOVED TO THIS INSTEAD: 
-when_you_free 
+
+![when_you_free](https://www.npmjs.com/package/when_you_free)
 
 - what this means: this package will still work, but it won't be as organized and won't be updated. 
 - more practically, check out when_you_free - it has all these functionalities and more. 
