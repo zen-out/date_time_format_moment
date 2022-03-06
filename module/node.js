@@ -1,3 +1,5 @@
+const { getType } = require("./getType")
+const moment = require("moment")
 moment.locale("en")
     // moment.updateLocale('hk')
 const ERROR_OBJECT = {
@@ -19,33 +21,6 @@ month[8] = "September";
 month[9] = "October";
 month[10] = "November";
 month[11] = "December";
-let dictionary = {
-    "January": 0,
-    "February": 1,
-    "March": 2,
-    "April": 3,
-    "May": 4,
-    "June": 5,
-    "July": 6,
-    "August": 7,
-    "September": 8,
-    "October": 9,
-    "November": 10,
-    "December": 11,
-    'Jan': 0,
-    'Feb': 1,
-    'Mar': 2,
-    'Apr': 3,
-    'May': 4,
-    'Jun': 5,
-    'Jul': 6,
-    'Aug': 7,
-    'Sep': 8,
-    'Oct': 9,
-    'Nov': 10,
-    'Dec': 11,
-
-}
 
 // console.log(paragraph.search(regex));
 class FormatDateTime {
@@ -65,142 +40,19 @@ class FormatDateTime {
         this.seconds = 222
 
     }
-    countInstances(string, word) {
-        return string.split(word).length - 1;
-    }
-    capitalizeFirstLetter(string) {
-        string = string.toLowerCase()
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    arrStringtoNum(arr) {
-            return arr.map(Number);
-        }
-        /**
-         * @example
-         * getType(Date)
-         *"2022-03-01T19:06:31.047Z"
-         "00:22:00"
-         "March 1, 2022"
-         "Mar 1, 2022"
-         "2022-03-01"
-         "01-03-2022"
-         "2022/03/01"
-         new Date()
-         23
-         * @author zen-out
-         * @date 2022-01-13
-         * @param {any} date
-         * @returns {any}
-         */
-    getType(date) {
-            let finalDate;
-            // console.log(date.length)
-            if (typeof date === "string") {
-                finalDate = date.toUpperCase()
-            } else if (typeof date === "number") {
-                let seconds = this.secondsToDigital(date)
-                let splitByColon = seconds.split(":")
-                let getDigital = this.arrStringtoNum(splitByColon)
-                    // console.log(getDigital)
-                finalDate = moment({
-                    hour: parseInt(getDigital[0]),
-                    minute: parseInt(getDigital[1]),
-                    second: parseInt(getDigital[2])
-                })
 
-                return moment(finalDate)
-            } else {
-                return moment(date)
-            }
-            // remove commas
-            date = date.replaceAll(",", "")
-            let startsWithLetter = new RegExp("^[A-Z]")
-            let regular = date.match(startsWithLetter)
-            let testDigital = new RegExp(/^([0-1]?\d|2[0-3])(?::([0-5]?\d))?(?::([0-5]?\d))?$/)
-                // let testSlash = new RegExp(/[\/]/)
-                // var html = date.match(testSlash)
-                // console.log(this.countInstances(date, "/"))
-            let slashes = this.countInstances(date, "/")
-            let dashes = this.countInstances(date, "-")
-            var digital = date.match(testDigital);
-            let splitted = date.split(" ")
-                // let colon = date.
-            if (date.length > 20) {
-                return moment(date)
-            } else if (digital) {
-                let splitByColon = date.split(":")
-                if (splitByColon.length > 2) {
-                    let num = this.arrStringtoNum(splitByColon)
-                    let time = moment({
-                        hour: num[0],
-                        minute: num[1],
-                        second: num[2]
-                    })
-                    return time
-                }
-            } else if (slashes === 2) {
-                // console.log(date)
-                let splitted2 = date.split("/")
-                let slashSplit = this.arrStringtoNum(splitted2)
-                if (splitted2[0].length > 2) {
-                    // console.log(slashSplit)
-                    let slashed = moment({
-                        year: slashSplit[0],
-                        month: slashSplit[1] - 1,
-                        day: slashSplit[2]
-                    })
-                    return slashed
-                } else {
-                    // console.log(slashSplit)
-                    let slashSplit = moment({
-                        year: slashSplit[2],
-                        month: slashSplit[1] - 1,
-                        day: slashSplit[0]
-                    })
-                    return slashSplit
-                }
-            } else if (dashes === 2) {
-                let splitted3 = date.split("-")
-                let dashSplit = this.arrStringtoNum(splitted3)
-                if (splitted3[0].length > 2) {
-                    let dashSplit2 = moment({
-                        year: dashSplit[0],
-                        month: dashSplit[1] - 1,
-                        day: dashSplit[2]
-                    })
-                    return dashSplit2
-                } else {
-                    let dashd2 = moment({
-                        year: dashSplit[2],
-                        month: dashSplit[1] - 1,
-                        day: dashSplit[0]
-                    })
-                    return dashd2
-                }
-            } else if (splitted[0].length > 2 && regular) {
-                let capitalized = this.capitalizeFirstLetter(splitted[0])
-                splitted[0] = capitalized
-                let getMonth = dictionary[splitted[0]]
-                let stringed = moment({
-                    year: parseInt(splitted[2]),
-                    month: getMonth,
-                    day: parseInt(splitted[1])
-                })
-                return stringed;
-            }
 
-        }
-        /**
- * catchError(date)
- * Sees if getDate is undefined or not an object. if so, return const ERROR_OBJECT = {
+    /**
+* catchError(date)
+* Sees if getDate is undefined or not an object. if so, return const ERROR_OBJECT = {
 error: "not valid date",
 error_location: "format_date_time_moment",
 message: "date error"
 }
- * @date 2022-03-01
- * @param {any} getDate
- * @returns {any}
- */
+* @date 2022-03-01
+* @param {any} getDate
+* @returns {any}
+*/
     catchError(getDate) {
             if (getDate === undefined || typeof getDate !== "object") {
                 return ERROR_OBJECT
@@ -210,7 +62,7 @@ message: "date error"
         }
         /**
          * @example
-         * console.log(formatDateTime.isBefore("March 3, 2020", "March 10, 2021"))
+         * console.log(formatDateTime.isBetween("March 3, 2020", "March 10, 2021"))
          * @description 
          * Good to use if you want to see a date is before another
          * @author zen-out
@@ -220,8 +72,8 @@ message: "date error"
          * @returns {boolean}
          */
     isBefore(start, end) {
-            let dateOne = this.getType(start)
-            let dateTwo = this.getType(end)
+            let dateOne = getType(start)
+            let dateTwo = getType(end)
             let seeIfValid1 = this.catchError(dateOne)
             let seeIfValid2 = this.catchError(dateTwo)
             let isError = seeIfValid1 === true && seeIfValid2 === true
@@ -244,8 +96,8 @@ message: "date error"
          * @returns {integer}
          */
     getDuration(start, end, type) {
-        let dateOne = this.getType(start)
-        let dateTwo = this.getType(end)
+        let dateOne = getType(start)
+        let dateTwo = getType(end)
         let seeIfValid1 = this.catchError(dateOne)
         let seeIfValid2 = this.catchError(dateTwo)
         let isError = seeIfValid1 === true && seeIfValid2 === true
@@ -272,7 +124,7 @@ message: "date error"
      * @returns {string}
      */
     getReadableFormat(getDate, type = "from") {
-            let formatted = this.getType(getDate)
+            let formatted = getType(getDate)
             let seeIfValid = this.catchError(formatted)
             if (!seeIfValid.error) {
                 if (type === "from") {
@@ -296,8 +148,8 @@ message: "date error"
          * @returns {integer}
          */
     difference(one, two, type) {
-            let dateOne = this.getType(one)
-            let dateTwo = this.getType(two)
+            let dateOne = getType(one)
+            let dateTwo = getType(two)
             let seeIfValid = this.catchError(dateOne)
             let seeIfValid2 = this.catchError(dateTwo)
             let bothTrue = seeIfValid && seeIfValid2
@@ -333,7 +185,7 @@ message: "date error"
             weekInput: 'GGGG-[W]WW', // <input type="week" />
             monthInput: 'YYYY-MM', // <input type="month" />, 
         };
-        let getDate = this.getType(date)
+        let getDate = getType(date)
 
         let seeIfValid = this.catchError(getDate)
             // console.log(seeIfValid, "valid")
@@ -382,7 +234,7 @@ message: "date error"
          * @returns {date}
          */
     formatDateToPost(stringInput) {
-        let getDate = this.getType(stringInput)
+        let getDate = getType(stringInput)
 
         let seeIfValid = this.catchError(getDate)
         if (seeIfValid !== true) {
@@ -428,52 +280,31 @@ message: "date error"
          * @returns {boolean} or object 
          */
     isBetween(target, start, end) {
-            let dateZero = this.getType(target)
-            let dateOne = this.getType(start)
-            let dateTwo = this.getType(end)
-            let seeIfValid = this.catchError(dateOne)
-            let seeIfValid2 = this.catchError(dateTwo)
-            let seeIfValid3 = this.catchError(dateZero)
-            let allTrue = seeIfValid && seeIfValid2 && seeIfValid3
-            if (allTrue) {
-                let isTrue = dateZero.isBetween(dateOne, dateTwo)
-                return isTrue
-            } else {
-                return ERROR_OBJECT
-            }
+        let dateZero = getType(target)
+        let dateOne = getType(start)
+        let dateTwo = getType(end)
+        let seeIfValid = this.catchError(dateOne)
+        let seeIfValid2 = this.catchError(dateTwo)
+        let seeIfValid3 = this.catchError(dateZero)
+        let allTrue = seeIfValid && seeIfValid2 && seeIfValid3
+        if (allTrue) {
+            let isTrue = dateZero.isBetween(dateOne, dateTwo)
+            return isTrue
+        } else {
+            return ERROR_OBJECT
         }
-        /**
-         * console.log(formatDateTime.secondsToDigital(23423)) 06: 30: 23
-         * @author zen-out
-         * @date 2022-01-13
-         * @param {any} seconds
-         * @returns {any}
-         */
-    secondsToDigital(seconds) {
-            var sec_num = parseInt(seconds, 10); // don't forget the second param
-            var hours = Math.floor(sec_num / 3600);
-            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-            var seconds = sec_num - (hours * 3600) - (minutes * 60);
+    }
 
-            if (hours < 10) {
-                hours = "0" + hours;
-            }
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
-            return hours + ':' + minutes + ':' + seconds;
-        }
-        /**
-         * getDate(date, options)
-         * @author zen-out
-         * @date 2022-01-13
-         * @param {any} getDate
-         * @param {any} option
-         * @returns {any}
-         */
+    /**
+     * @example 
+     * 
+     * getDate(date, options)
+     * @author zen-out
+     * @date 2022-01-13
+     * @param {any} getDate
+     * @param {any} option
+     * @returns {any}
+     */
     getDate(getDate, option) {
         //   console.debug("DATE", getDate);
         let date = new Date(getDate);
@@ -523,3 +354,21 @@ message: "date error"
     }
 }
 let formatDateTime = new FormatDateTime()
+    // formatDateTime.formatDateToPost("Dec 11, 1994")
+    // formatDateTime.formatDateToPost("2222")
+
+// formatDateTime.getType("March 1, 2022")
+
+// formatDateTime.getType("2022/03/01")
+// formatDateTime.getType("01-03-2022")
+
+// formatDateTime.getType("2022-03-01")
+
+// formatDateTime.getType("00:22:00")
+
+// formatDateTime.getType("2022-03-01T19:06:31.047Z") *
+//     formatDateTime.getType("March 1, 2022")
+// formatDateTime.formatDateToPost("00:00:10")
+// formatDateTime.formatDateToPost(new Date())
+
+module.exports = { formatDateTime }

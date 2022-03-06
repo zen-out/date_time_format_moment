@@ -18,5 +18,7 @@ $(() => {
     console.log(formatDateTime.getDuration("2022-03-01T19:06:31.047Z", "2022-03-01T20:04:32.047Z", "seconds"))
     console.log(formatDateTime.formatDateToPost("March 1, 2022"))
     console.log(formatDateTime.formatDateToPost("2022-03-01"))
+    console.log(formatDateTime.getType("222"))
+
 
 })

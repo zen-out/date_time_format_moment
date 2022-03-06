@@ -1,3 +1,6 @@
+# TO DO 
+- [ ] update documentation for compare and create modules
+
 ![NPM Downloads](https://img.shields.io/npm/dw/format_date_time_moment)
 
 # format_date_time_moment
@@ -22,6 +25,14 @@ The purpose is to make it easier to format dates (given whatever input the date 
 npm install format_date_time_moment
 ```
 
+If utilizing in node, import into your javascript file like such 
+
+```
+const {formatDateTime} = require("format_date_time_moment/node")
+
+```
+otherwise...
+
 2. In your html document, import the script (make sure to import it after your ***JQuery AND moment*** script, and before your javascript file)
 
 ```
@@ -41,6 +52,7 @@ $(() => {
 ```
 <script src="yourScript.js"></script>
 ```
+
 
 ## API
 
